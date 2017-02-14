@@ -32,3 +32,20 @@ class Items(Base):
 	id = Column(Integer, primary_key=True)
 
 	
+Base.metadata.create_all(engine)
+
+class Action(object):
+	def __init__(self, to_do_list):
+		pass
+
+	def sql_add_list(to_do_list):
+		new_list = TodoList(lists = to_do_list)
+		session.add(new_list)
+		session.commit()
+
+	def sql_add_item(to_do_list, item):
+		new_item = Items(items = item)
+		session.add(new_item)
+		session.commit()
+
+		pass
