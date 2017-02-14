@@ -25,4 +25,10 @@ class TodoList(Base):
 
 	lists = Column(String(250), nullable=False)
 
+class Items(Base):
+	
+	__tablename__ = "item_list"
+
+	id = Column(Integer, primary_key=True)
+
 	
