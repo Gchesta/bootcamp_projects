@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlite_tables import *
 
 
+#declarations
 engine = create_engine('sqlite:///todo.db')
 engine.echo = False  
 
@@ -19,7 +20,8 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-"""def sql_add_list(to_do_list):
+def sql_add_list(to_do_list):
+	"""A function to add lists to the todo_list table"""
 	new_list = TodoList(lists = to_do_list)
 	session.add(new_list)
 	session.commit()
@@ -39,7 +41,7 @@ def sql_view_lists():
 
 
 
-def sql_view_items(to_do_list):
+"""def sql_view_items(to_do_list):
 	f = session.query(TodoList).filter_by(lists = to_do_list).one()
 	f_id = f.list_id
 	my_items = session.query(Items).filter_by(list_id = f_id).all()
@@ -63,3 +65,4 @@ sql_add_item("Books to Read", "Bible")
 
 sql_view_items("Books to Read")"""
 
+sql_view_lists()
