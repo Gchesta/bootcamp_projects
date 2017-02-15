@@ -27,21 +27,20 @@ def sql_add_list(to_do_list):
 	session.commit()
 
 def sql_add_item(to_do_list, item):
+	"""A function to add items to a to-do list"""
 	f = session.query(TodoList).filter_by(lists = to_do_list).one()
 	f_id = f.list_id
-	#new_list = TodoList(lists = to_do_list)
 	new_item = Items(items = item, list_id = f_id)
 	session.add(new_item)
 	session.commit()
 
 def sql_view_lists():
+	"""A function to view all the to-do lists"""
 	my_lists = session.query(TodoList).all()
 	for my_list in my_lists:
 		print(str(my_list.list_id) + ". " + my_list.lists)
 
-
-
-"""def sql_view_items(to_do_list):
+def sql_view_items(to_do_list):
 	f = session.query(TodoList).filter_by(lists = to_do_list).one()
 	f_id = f.list_id
 	my_items = session.query(Items).filter_by(list_id = f_id).all()
@@ -49,9 +48,12 @@ def sql_view_lists():
 	print(to_do_list)
 	for my_item in my_items:
 		print(str(counter) + ". " + my_item.items)
-		counter += 1"""
+		counter += 1
 
-"""sql_add_item("Jobs to Apply To", "Teaching - TSC")
+"""sql_add_list("Jobs to Apply To")
+sql_add_list("Books to Read")
+
+sql_add_item("Jobs to Apply To", "Teaching - TSC")
 sql_add_item("Books to Read", "The Souls of Black Folks")
 sql_add_item("Jobs to Apply To", "KQ Pilot")
 sql_add_item("Books to Read", "The Government Inspector")
@@ -63,6 +65,7 @@ sql_add_item("Books to Read", "Education for Self-Reliance")
 sql_add_item("Books to Read", "Utenzi wa Mwana Kupona")
 sql_add_item("Books to Read", "Bible")
 
-sql_view_items("Books to Read")"""
+sql_view_items("Books to Read")
+sql_view_items("Jobs to Apply To")
 
-sql_view_lists()
+sql_view_lists()"""
