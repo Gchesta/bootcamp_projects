@@ -6,6 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 #from sqlalchemy.ext.automap import automap_base
 from sqlite_tables import *
+from terminaltables import AsciiTable
 
 
 #declarations
@@ -41,14 +42,19 @@ def sql_view_lists():
 		print(str(my_list.list_id) + ". " + my_list.lists)
 
 def sql_view_items(to_do_list):
+	"""A function to view the data in a to-do list"""
 	f = session.query(TodoList).filter_by(lists = to_do_list).one()
 	f_id = f.list_id
 	my_items = session.query(Items).filter_by(list_id = f_id).all()
 	counter = 1
-	print(to_do_list)
+	data = [["No", to_do_list]]
 	for my_item in my_items:
-		print(str(counter) + ". " + my_item.items)
+		data.append([counter, my_item.items])
 		counter += 1
+	table = AsciiTable(data)
+	print(table.table)
+
+sql_view_items("Books to Read")
 
 """sql_add_list("Jobs to Apply To")
 sql_add_list("Books to Read")
