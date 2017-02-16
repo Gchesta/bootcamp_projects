@@ -34,8 +34,11 @@ class SqliteWrapper(object):
 
 	def sql_add_item(to_do_list, item):
 		"""A function to add items to a to-do list"""
-		f = session.query(TodoList).filter_by(lists = to_do_list).one()
-		f_id = f.list_id
+		if type(to_do_list) != int:
+			f = session.query(TodoList).filter_by(lists = to_do_list).one()
+			f_id = f.list_id
+		else:
+			f_id = to_do_list
 		new_item = Items(items = item, list_id = f_id)
 		session.add(new_item)
 		session.commit()
