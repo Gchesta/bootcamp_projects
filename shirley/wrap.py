@@ -67,6 +67,3 @@ class SqliteWrapper(object):
 			counter += 1
 		table = AsciiTable(data)
 		print(table.table)
-
-
-
