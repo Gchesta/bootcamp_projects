@@ -15,6 +15,7 @@ class Shirley(object):
 	
 		if command == "todo create": #for creating a new list
 			if arguments:
+				arguments = str(arguments[1:-1])
 				SqliteWrapper.sql_add_list(arguments) 
 				Shirley.shirley_start() #return to the base
 
@@ -31,7 +32,7 @@ class Shirley(object):
 				if arguments.isdigit():
 					arguments = int(arguments) #will send a list id
 				else:
-					arguments = arguments #will send a list
+					arguments = str(arguments[1:-1]) #will send a list
 				SqliteWrapper.sql_view_items(arguments)
 				Shirley.shirley_start()
 
@@ -54,7 +55,8 @@ class Shirley(object):
 						if arguments.isdigit():
 							arguments = int(arguments) #will send a list id
 						else:
-							arguments = arguments #will send a list
+							arguments = str(arguments[1:-1]) #will send a list
+						arguments_item = str(arguments_item[1:-1])
 						SqliteWrapper.sql_add_item(arguments, arguments_item)
 						Shirley.shirley_start()
 
