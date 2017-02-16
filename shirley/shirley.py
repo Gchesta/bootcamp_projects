@@ -43,7 +43,7 @@ class Shirley(object):
 			print("USE COMMAND 'todo open' BEFORE USING COMMAND 'item add'") #check for the above error
 			Shirley.shirley_start()
 
-		"""elif command == "todo open":
+		elif command == "todo open":
 			if arguments:
 				entries_item = input(":")
 				command_item =  " ".join(entries_item.split(" ")[0:2])
@@ -66,7 +66,7 @@ class Shirley(object):
 			else:
 				print("INVALID ARGUMENTS. TRY AGAIN")
 				Shirley.shirley_start()
-		else:
+		"""else:
 			print("INVALID COMMANDS. TRY AGAIN")
 			Shirley.shirley_start()
 
