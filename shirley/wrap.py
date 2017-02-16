@@ -45,7 +45,7 @@ class SqliteWrapper(object):
 				session.add(new_item)
 				session.commit()
 			except Exception:
-				print("YOU HAVE INPUTED WRONG ARGUMENTS")
+				print("THERE WAS AN ERROR PROCESSING YOUR REQUEST. TRY AGAIN")
 
 	def sql_view_lists():
 		"""A function to view all the to-do lists"""
@@ -58,7 +58,7 @@ class SqliteWrapper(object):
 		
 	def sql_view_items(to_do_list):
 		"""A function to view the data in a to-do list"""
-		if to_do_list != None and item != None:
+		if to_do_list != None:
 			try:
 				if type(to_do_list) != int:
 					f = session.query(TodoList).filter_by(lists = to_do_list).one()
@@ -74,7 +74,7 @@ class SqliteWrapper(object):
 				table = AsciiTable(data)
 				print(table.table)
 			except Exception:
-				print("YOU HAVE INPUTED WRONG ARGUMENTS")
+				print("THERE WAS AN ERROR PROCESSING YOUR REQUEST. TRY AGAIN")
 
 
 		
