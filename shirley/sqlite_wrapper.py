@@ -68,4 +68,5 @@ class SqliteWrapper(object):
 		table = AsciiTable(data)
 		print(table.table)
 
+SqliteWrapper.sql_view_items("Books to Read")
 
