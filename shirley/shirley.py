@@ -73,6 +73,6 @@ class Shirley(object):
 			print("INVALID COMMANDS. TRY AGAIN")
 			Shirley.shirley_start()
 
-Shirley.shirley_start()"""
+Shirley.shirley_start()
 	
 
