@@ -26,24 +26,24 @@ class Shirley(object):
 			SqliteWrapper.sql_view_lists()
 			Shirley.shirley_start()
 
-		"""elif command == "list items":
+		elif command == "list items": #this control flow must chek for list/list_id
 			if arguments:
 				if arguments.isdigit():
-					arguments = int(arguments)
+					arguments = int(arguments) #will send a list id
 				else:
-					arguments = arguments
+					arguments = arguments #will send a list
 				SqliteWrapper.sql_view_items(arguments)
 				Shirley.shirley_start()
 
 			else:
-				print("INVALID ARGUMENTS. TRY AGAIN")
+				print("INVALID ARGUMENTS. TRY AGAIN") #reject the invalid argumenst
 				Shirley.shirley_start()
 	
-		elif command == "item add":
-			print("USE COMMAND 'todo open' BEFORE USING COMMAND 'item add'")
+		elif command == "item add": #a user may accidentally enter "item add" before "todo open"
+			print("USE COMMAND 'todo open' BEFORE USING COMMAND 'item add'") #check for the above error
 			Shirley.shirley_start()
 
-		elif command == "todo open":
+		"""elif command == "todo open":
 			if arguments:
 				entries_item = input(":")
 				command_item =  " ".join(entries_item.split(" ")[0:2])
