@@ -2,15 +2,21 @@
 from sqlite_wrapper import SqliteWrapper
 class Shirley(object):
 	def shirley_start():
+		"""
+		This is the main function that runs the program. It is the one
+		that will interact with the user. Extensive use of if/else
+		instead of the "pythonic" try/except is because of the fact that
+		the erros will be expected since this is a CLA. 
+		"""
 
-		entries = input(":")
-		command = " ".join(entries.split(" ")[0:2])
-		arguments = " ".join(entries.split(" ")[2:])
+		entries = input(":") #get the entrie 
+		command = " ".join(entries.split(" ")[0:2]) #get the command section from the entries
+		arguments = " ".join(entries.split(" ")[2:]) #get the arguments
 	
-		if command == "todo create":
+		if command == "todo create": #for creating a new list
 			if arguments:
-				SqliteWrapper.sql_add_list(arguments)
-				Shirley.shirley_start()
+				SqliteWrapper.sql_add_list(arguments) 
+				Shirley.shirley_start() #return to the base
 
 			else:
 				print("INVALID ARGUMENTS. TRY AGAIN")
