@@ -15,9 +15,13 @@ class Shirley(object):
 	
 		if command == "todo create": #for creating a new list
 			if arguments:
-				arguments = str(arguments[1:-1])
-				SqliteWrapper.sql_add_list(arguments) 
-				Shirley.shirley_start() #return to the base
+				if arguments[0] != "\"" and arguments[0] != "\'":
+					print("INVALID ARGUMENTS. TRY AGAIN")
+					Shirley.shirley_start()
+				else:
+					arguments = str(arguments[1:-1])
+					SqliteWrapper.sql_add_list(arguments) 
+					Shirley.shirley_start() #return to the base
 
 			else:
 				print("INVALID ARGUMENTS. TRY AGAIN")
