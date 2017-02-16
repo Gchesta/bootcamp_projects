@@ -22,11 +22,11 @@ class Shirley(object):
 				print("INVALID ARGUMENTS. TRY AGAIN")
 				Shirley.shirley_start()
 
-		"""elif command == "todo list":
+		elif command == "todo list":
 			SqliteWrapper.sql_view_lists()
 			Shirley.shirley_start()
 
-		elif command == "list items":
+		"""elif command == "list items":
 			if arguments:
 				if arguments.isdigit():
 					arguments = int(arguments)
