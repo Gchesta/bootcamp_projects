@@ -1,5 +1,5 @@
 
-from sqlite_wrapper import SqliteWrapper
+from wrap import SqliteWrapper
 class Shirley(object):
 	def shirley_start():
 		"""

@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 #from sqlalchemy.orm import relationship
 from sqlalchemy.orm import sessionmaker
 #from sqlalchemy.ext.automap import automap_base
-from sqlite_tables import *
+from tables import *
 from terminaltables import AsciiTable
 #from shirley import Shirley
 

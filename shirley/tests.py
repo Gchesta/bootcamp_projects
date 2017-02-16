@@ -2,8 +2,8 @@ import os
 import sys
 from sqlalchemy import *
 import unittest
-from sqlite_wrapper import *
-from sqlite_tables import *
+from wrap import *
+from tables import *
 
 engine = create_engine('sqlite:///todo.db')
 engine.echo = False  
