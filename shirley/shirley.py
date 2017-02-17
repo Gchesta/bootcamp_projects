@@ -1,5 +1,18 @@
 
+import os
 from wrap import SqliteWrapper
+from termcolor import colored, cprint
+from pyfiglet import figlet_format
+
+os.system("clear")
+print("\n")
+cprint(figlet_format('Shirley', font='roman'), "yellow")
+cprint("\t=======================================", "cyan")
+cprint("\tSHIRLEY - Your Pretty Little Secretary", "green")
+cprint("\t=======================================", "cyan")
+cprint("\n\t\t\tFor help, type -h\n", "white")
+
+
 class Shirley(object):
 	def shirley_start():
 		"""
@@ -12,8 +25,19 @@ class Shirley(object):
 		entries = input(":") #get the entrie 
 		command = " ".join(entries.split(" ")[0:2]) #get the command section from the entries
 		arguments = " ".join(entries.split(" ")[2:]) #get the arguments
-	
-		if command == "todo create": #for creating a new list
+		if command == "-h":
+			cprint("To create a new collection: todo create <collection>", "green" )
+			cprint("To add an item to a collection: todo open (<collection>|<collection id>)", "green")
+			cprint("\t:item add <item>", "green")
+			cprint("To view all collections: todo list", "green")
+			cprint("To view all items in a collection: list items (<collection>|<collection id>)", "green")
+			cprint("\t:item add <item>", "green")
+			Shirley.shirley_start()
+
+		elif command == "quit":
+			raise SystemExit(0)
+
+		elif command == "todo create": #for creating a new list
 			if arguments:
 				if arguments[0] != "\"" and arguments[0] != "\'":
 					print("INVALID ARGUMENTS. TRY AGAIN")
