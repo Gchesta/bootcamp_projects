@@ -30,6 +30,7 @@ class SqliteWrapper(object):
 		new_list = TodoList(lists = to_do_list)
 		session.add(new_list)
 		session.commit()
+		print("Successfully created a new collection called '" + to_do_list + "'")
 		
 
 	def sql_add_item(to_do_list, item):
@@ -44,6 +45,7 @@ class SqliteWrapper(object):
 				new_item = Items(items = item, list_id = f_id)
 				session.add(new_item)
 				session.commit()
+				print("Successfully added a new item called '" + str(item) + "' " + "to collection " + "'" + str(to_do_list) + "'")
 			except Exception:
 				print("THERE WAS AN ERROR PROCESSING YOUR REQUEST. TRY AGAIN")
 

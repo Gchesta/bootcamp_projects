@@ -50,9 +50,11 @@ class Shirley(object):
 
 		elif command == "todo open": #check the todo open command
 			if arguments:
+				print("Add an item to collection" + arguments)
 				entries_item = input(":") 
 				command_item =  " ".join(entries_item.split(" ")[0:2])
 				arguments_item = " ".join(entries_item.split(" ")[2:])
+
 
 				if command_item == "item add":
 					if arguments_item:
